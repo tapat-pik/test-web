@@ -116,6 +116,11 @@
         <h2>กราฟเปรียบเทียบสินค้า</h2>
         <canvas id="productChart" width="400" height="300"></canvas>
       </div>
+
+      <div class="card">
+        <h2>กราฟวงกลมส่วนแบ่ง</h2>
+        <canvas id="shareChart" width="400" height="300"></canvas>
+      </div>
     </div>
   </div>
 
@@ -157,6 +162,26 @@
         responsive: true,
         scales: {
           y: { beginAtZero: true }
+        }
+      }
+    });
+
+    const ctx3 = document.getElementById('shareChart').getContext('2d');
+    new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['ผลิตภัณฑ์ A', 'ผลิตภัณฑ์ B', 'ผลิตภัณฑ์ C', 'ผลิตภัณฑ์ D'],
+        datasets: [{
+          data: [35, 26, 12, 27],
+          backgroundColor: ['#4b96ff', '#f6b93b', '#e03e2f', '#28a745']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
         }
       }
     });
